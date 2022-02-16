@@ -1,5 +1,5 @@
 {
-  "name": "webhook",
+  "name": "cld-webhooks",
   "description": "Using webhooks and deploying them to netlify",
   "private": true,
   "scripts": {

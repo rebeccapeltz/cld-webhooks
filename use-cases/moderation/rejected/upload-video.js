@@ -4,7 +4,7 @@ const cloudinary = require('cloudinary').v2
 // using add on Google AI Video Moderation
 // Google cloud video intelligence
 
-// webhook will look like this https://my-cld-webhook.netlify.app/.netlify/functions/webhook_process_google_moderation_queues
+// webhook will look like this https://my-cld-webhooks.netlify.app/.netlify/functions/webhook_process_google_moderation_queues
 
 
 cloudinary.uploader

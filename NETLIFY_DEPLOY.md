@@ -12,7 +12,7 @@ brew install node
 
 ## Install Yarn
 
-- [ ] Yarn install
+- Yarn install
 I'm using `yarn`. You can install using npm `npm install --global yarn`.  The  build command is `yarn install`. 
 
 note: You can use also  use `npm` to install packages, and the NPM build command is `npm install`.
@@ -26,8 +26,8 @@ note: You can use also  use `npm` to install packages, and the NPM build command
 ## Cloudinary
 Sign up for a free Cloudinary account and copy your CLOUDINARY_URL into the `CLOUDINARY_URL` variable value.
 
-## Sendgrid
-If you want to send email notifications, sign up for a free [Sendgrid Account](https://sendgrid.com/go/email-smtp-service-signup).  Be sure to save our API_KEY somewhere. Create a registered sender and add to `FROM_VERIFIED_SENDER`.  Add a recipient email in `TO_RECIPIENT`.  Add the Sendgrid API_KEY to the `SENDGRID_API_KEY`.  
+## SendGrid
+If you want to send email notifications, sign up for a free [SendGrid Account](https://sendgrid.com/go/email-smtp-service-signup).  Be sure to save our API_KEY somewhere. Create a registered sender and add to `FROM_VERIFIED_SENDER`.  Add a recipient email in `TO_RECIPIENT`.  Add the SendGrid API_KEY to the `SENDGRID_API_KEY`.  
 
 ## Netlify 
 We'll be calling lambda functions from other functions so you'll need your base directory.  This will be the URL path to the functions that you get from Netlify when you deploy this code. It will look something like this: `https://my-cld-webhooks.netlify.app/.netlify/functions/`.  This project name has to be unique so, you'll usually include your name in it.
@@ -36,7 +36,7 @@ We'll be calling lambda functions from other functions so you'll need your base 
 
 Once you have forked this repository to your own account, you'll deploy it to Netlify.  The steps here assume that you have this code in your own GitHub repository.  You'll be linking this to Netlify so that anytime you change this, it will trigger a build on Netlify.
 
-- [ ] Look at the  `netlify.toml` file 
+- Look at the  `netlify.toml` file 
 
 The `command` key tells Netlify to run `yarn install` which will install the NPM dependency packages.
 The `publish` key  tells netlify that it can serve from the  `/public/` directory for this project.  
@@ -49,7 +49,7 @@ The `functions` key tells netlify that it can find the lambda functions in the `
   functions = "functions/"
 ```
 
-- [ ] Create a local .env file
+- Create a local .env file
 This file should be .gitignore'd.  
 It should contain
 

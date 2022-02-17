@@ -4,7 +4,7 @@ const cloudinary = require("cloudinary").v2;
 // eager async upload to create derived optimization transformations
 // asynchronously to avoid delays with on the fly transformations
 
-// Your webhook might looks like this: https://my-cld-webhook.netlify.app/.netlify/functions/webhook_notify_email
+// Your webhook might looks like this: https://my-cld-webhooks.netlify.app/.netlify/functions/webhook_notify_email
 
 cloudinary.uploader
   .upload("./assets/roller-skating.mp4", {
@@ -20,7 +20,7 @@ cloudinary.uploader
       { raw_transformation: "f_mp4,vc_h264,q_auto/mp4" },
     ],
     eager_async: true,
-    eager_notification_url:"<WEBHOOK>",
+    eager_notification_url:"https://rpeltz-cld-webhooks.netlify.app/.netlify/functions/webhook_notify_email",
   })
   .then((result) => {
     console.log(result);

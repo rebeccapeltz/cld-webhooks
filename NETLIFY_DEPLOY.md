@@ -78,13 +78,18 @@ If you need to login to a different account, log out first.
 
 - [ ] Initialize Netlify Project and Connect to Github
 `netlify init`  
-Netlify should read your toml file for defaults. 
+Netlify should read your toml and package.json files for defaults. 
 Choose the option to  `Create and configure new site`
-Choose site name 
+Team: <your team>
+Choose site name rpeltz-cld-webhooks
 Command should be `yarn install` 
 Deploy to `public` directory
+Netlify functions folder: functions
 
-You will probably need to `git push` after this.
+You may need to `git push` after this.
+
+PROD_FN_PATH (production function path) is the base directory of your functions.  If your Netlify site name is `rpeltz-cld-webhooks` then our PROD_FN_PATH will be `https://rpeltz-cld-webhook.netlify.app/.netlify/functions/`.  This is the full path to your lambda functions.  You need this because the Google AI Video Moderation Queue function calls the approve and reject functions using their full path.
+
 
 - [ ] Public environment variables
 You can push your environment variables out to netlify from the CLI. 

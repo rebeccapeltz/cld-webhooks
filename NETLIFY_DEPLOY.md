@@ -1,7 +1,7 @@
 # Deploying Webhook functions to Netlify
 
 ## Install Node/NPM
-- [ ] Install node/npm on Mac with Homebrew
+- Install node/npm on Mac with Homebrew
 
 ```bash
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/

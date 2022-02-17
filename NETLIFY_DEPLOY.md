@@ -13,11 +13,7 @@ brew install node
 ## Install Yarn
 
 - [ ] Yarn install
-<<<<<<< HEAD
 I'm using `yarn`. You can install using npm `npm install --global yarn`.  The  build command is `yarn install`. 
-=======
-I'm using `yarn` which you can install using npm `npm install --global yarn`.  The build command is `yarn install`. 
->>>>>>> 126ff6a295d9acfbb15abec152102c54450720b4
 
 note: You can use also  use `npm` to install packages, and the NPM build command is `npm install`.
 
@@ -77,6 +73,7 @@ PROD_FN_PATH="https://my-cld-webhooks.netlify.app/.netlify/functions/"
 - [ ] Install netlify cli  
 `npm install netlify-cli -g`  
 >>>>>>> 126ff6a295d9acfbb15abec152102c54450720b4
+
 
 - Login to netlify
 `netlify login`  

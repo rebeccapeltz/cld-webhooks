@@ -1,5 +1,6 @@
 # Deploying Webhook functions to Netlify
 
+## Install Node/NPM
 - [ ] Install node/npm on Mac with Homebrew
 
 ```bash
@@ -9,15 +10,22 @@ brew update
 brew install node
 ```
 
+## Install Yarn
+
 - [ ] Yarn install
+<<<<<<< HEAD
 I'm using `yarn`. You can install using npm `npm install --global yarn`.  The  build command is `yarn install`. 
+=======
+I'm using `yarn` which you can install using npm `npm install --global yarn`.  The build command is `yarn install`. 
+>>>>>>> 126ff6a295d9acfbb15abec152102c54450720b4
 
-You can use `npm`.  The NPM build command is `npm install`.
+note: You can use also  use `npm` to install packages, and the NPM build command is `npm install`.
 
+## Deploy Functions to Netlify
 
-You can deploy async functions to netlify.  There are many options available for doing this.  We'll use the [Netlify CLI](https://docs.netlify.com/cli/get-started/).  Here is list of Netlify CLI commands for reference: [commands](https://cli.netlify.com/).
+ There are many options available for doing this.  We'll use the [Netlify CLI](https://docs.netlify.com/cli/get-started/).  Here is list of Netlify CLI commands for reference: [commands](https://cli.netlify.com/).
 
-If you fork this repository or copy the functions in the `/functions` directory to your own repository, you can deploy them to Netlify by including a `netlify.toml` file in your root with the following information for building and specifying where to find the functions directory.
+ **Fork** this repository. 
 
 ## Cloudinary
 Sign up for a free Cloudinary account and copy your CLOUDINARY_URL into the `CLOUDINARY_URL` variable value.
@@ -26,11 +34,13 @@ Sign up for a free Cloudinary account and copy your CLOUDINARY_URL into the `CLO
 If you want to send email notifications, sign up for a free [Sendgrid Account](https://sendgrid.com/go/email-smtp-service-signup).  Be sure to save our API_KEY somewhere. Create a registered sender and add to `FROM_VERIFIED_SENDER`.  Add a recipient email in `TO_RECIPIENT`.  Add the Sendgrid API_KEY to the `SENDGRID_API_KEY`.  
 
 ## Netlify 
-We'll be calling lambda functions from other functions so you'll need your base directory.  If your netlify project is named `webhook`, the base directory will be `https://webhook.netlify.app/.netlify/functions/`.  This project name has to be unique so, you'll usually include your name in it.
+We'll be calling lambda functions from other functions so you'll need your base directory.  This will be the URL path to the functions that you get from Netlify when you deploy this code. It will look something like this: `https://my-cld-webhooks.netlify.app/.netlify/functions/`.  This project name has to be unique so, you'll usually include your name in it.
 
-## If you want to trigger lambda functions that process the Google Video Moderation Queue, 
+## Steps to Deploy
 
-- [ ] Setup `netlify.toml` file 
+Once you have forked this repository to your own account, you'll deploy it to Netlify.  The steps here assume that you have this code in your own GitHub repository.  You'll be linking this to Netlify so that anytime you change this, it will trigger a build on Netlify.
+
+- [ ] Look at the  `netlify.toml` file 
 
 The `command` key tells Netlify to run `yarn install` which will install the NPM dependency packages.
 The `publish` key  tells netlify that it can serve from the  `/public/` directory for this project.  
@@ -42,16 +52,17 @@ The `functions` key tells netlify that it can find the lambda functions in the `
   publish = "public"
   functions = "functions/"
 ```
+
 - [ ] Create a local .env file
 This file should be .gitignore'd.  
-It should contain:
+It should contain
 
 ```bash
 SENDGRID_API_KEY=SG.xxxxxxx
 FROM_VERIFIED_SENDER=xxx@xxx.xxx
 TO_RECIPIENT=xxx@xxx.xxx
 CLOUDINARY_URL=cloudinary://API_KEY:API_SECRET@CLOUD_NAME
-PROD_FN_PATH="https://<project name>.netlify.app/.netlify/functions/"
+PROD_FN_PATH="https://my-cld-webhooks.netlify.app/.netlify/functions/"
 ```
 
 - Local testing
@@ -59,8 +70,13 @@ PROD_FN_PATH="https://<project name>.netlify.app/.netlify/functions/"
 `yarn dev` to start servers locally
 `yarn test` to run invoke the lambda functions locally for testing
 
+<<<<<<< HEAD
 - Install netlify cli  
 `npm install netlify-cli`  
+=======
+- [ ] Install netlify cli  
+`npm install netlify-cli -g`  
+>>>>>>> 126ff6a295d9acfbb15abec152102c54450720b4
 
 - Login to netlify
 `netlify login`  
@@ -71,13 +87,18 @@ If you need to login to a different account, log out first.
 
 - Initialize Netlify Project and Connect to Github
 `netlify init`  
-Netlify should read your toml file for defaults. 
+Netlify should read your toml and package.json files for defaults. 
 Choose the option to  `Create and configure new site`
-Choose site name 
+Team: <your team>
+Choose site name rpeltz-cld-webhooks
 Command should be `yarn install` 
 Deploy to `public` directory
+Netlify functions folder: functions
 
-You will probably need to `git push` after this.
+You may need to `git push` after this.
+
+PROD_FN_PATH (production function path) is the base directory of your functions.  If your Netlify site name is `rpeltz-cld-webhooks` then our PROD_FN_PATH will be `https://rpeltz-cld-webhook.netlify.app/.netlify/functions/`.  This is the full path to your lambda functions.  You need this because the Google AI Video Moderation Queue function calls the approve and reject functions using their full path.
+
 
 - Public environment variables
 You can push your environment variables out to netlify from the CLI. 

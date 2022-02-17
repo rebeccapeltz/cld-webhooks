@@ -66,14 +66,8 @@ PROD_FN_PATH="https://my-cld-webhooks.netlify.app/.netlify/functions/"
 `yarn dev` to start servers locally
 `yarn test` to run invoke the lambda functions locally for testing
 
-<<<<<<< HEAD
 - Install netlify cli  
-`npm install netlify-cli`  
-=======
-- [ ] Install netlify cli  
 `npm install netlify-cli -g`  
->>>>>>> 126ff6a295d9acfbb15abec152102c54450720b4
-
 
 - Login to netlify
 `netlify login`  

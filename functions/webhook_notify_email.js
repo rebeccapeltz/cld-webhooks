@@ -22,7 +22,7 @@ exports.handler = async function (event, context) {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
   const msg = {
-    to: process.env.TO_RECIPIENT,
+    to: process.env.TO_RECIPIENTS.split(' '),
     from: process.env.FROM_VERIFIED_SENDER,
     subject: 'Webhook Notification',
     text: JSON.stringify(data, null, 2),

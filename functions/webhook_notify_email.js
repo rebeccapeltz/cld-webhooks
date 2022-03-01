@@ -30,7 +30,7 @@ exports.handler = async function (event, context) {
   console.log('msg', msg);
 
   try {
-    const response = await sgMail.send(msg);
+    const response = await sgMail.sendMultiple(msg);
     console.log('success', response[0].statusCode);
     console.log('success-response',response[0]);
 

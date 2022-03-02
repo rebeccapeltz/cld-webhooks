@@ -19,7 +19,7 @@ exports.handler = async function (event, context) {
   const data = JSON.parse(event.body);
   // console.log(JSON.stringify(data, null, 2));
 
-  console.log(`header info: ${event.headers.host}`);
+  console.log(`header info: ${JSON.stringify(event.headers,null,2)}`);
 
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 

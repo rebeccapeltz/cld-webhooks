@@ -15,19 +15,15 @@ exports.handler = async function (event, context) {
     };
   }
 
-  console.log(
-    'header info',
-    event.headers.referrer,
-    event.headers.origin,
-    event.headers.domain
-  );
+
 
   // get data
   const data = JSON.parse(event.body);
   console.log(JSON.stringify(data, null, 2));
 
-  console.log('header info domain' + event.headers.domain);
-  console.log('header info referrer' + event.headers.referrer);
+  console.log(
+    `header info: ${event.referrer}, ${event.origin}, ${event.domain}`
+  ); 
 
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 

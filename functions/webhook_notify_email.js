@@ -26,6 +26,9 @@ exports.handler = async function (event, context) {
   const data = JSON.parse(event.body);
   console.log(JSON.stringify(data, null, 2));
 
+  console.log('header info domain' + event.headers.domain);
+  console.log('header info referrer' + event.headers.referrer);
+
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
   const msg = {

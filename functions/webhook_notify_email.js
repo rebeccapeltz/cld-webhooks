@@ -15,6 +15,13 @@ exports.handler = async function (event, context) {
     };
   }
 
+  console.log(
+    'header info',
+    event.headers.referrer,
+    event.headers.origin,
+    event.headers.domain
+  );
+
   // get data
   const data = JSON.parse(event.body);
   console.log(JSON.stringify(data, null, 2));
@@ -26,13 +33,18 @@ exports.handler = async function (event, context) {
     from: process.env.FROM_VERIFIED_SENDER,
     subject: 'Webhook Notification',
     text: JSON.stringify(data, null, 2),
+    trackingSettings: {
+      clickTracking: {
+        enable: false,
+      },
+    },
   };
   console.log('msg', msg);
 
   try {
     const response = await sgMail.sendMultiple(msg);
     console.log('success', response[0].statusCode);
-    console.log('success-response',response[0]);
+    console.log('success-response', response[0]);
 
     return {
       statusCode: response[0].statusCode,

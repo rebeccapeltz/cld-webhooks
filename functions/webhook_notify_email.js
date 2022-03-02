@@ -15,15 +15,11 @@ exports.handler = async function (event, context) {
     };
   }
 
-
-
   // get data
   const data = JSON.parse(event.body);
-  console.log(JSON.stringify(data, null, 2));
+  // console.log(JSON.stringify(data, null, 2));
 
-  console.log(
-    `header info: ${event.referrer}, ${event.origin}, ${event.domain}`
-  ); 
+  console.log(`header info: ${event.headers.host}`);
 
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
@@ -43,7 +39,7 @@ exports.handler = async function (event, context) {
   try {
     const response = await sgMail.sendMultiple(msg);
     console.log('success', response[0].statusCode);
-    console.log('success-response', response[0]);
+    // console.log('success-response', response[0]);
 
     return {
       statusCode: response[0].statusCode,
@@ -53,7 +49,6 @@ exports.handler = async function (event, context) {
     console.error('error', JSON.stringify(error, 0, 2));
     // const errorMsg = error.response.body.errors[0].message;
     // console.log(errorMsg);
-
     return {
       statusCode: error.code,
       body: error.response.body.errors[0].message,

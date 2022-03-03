@@ -24,7 +24,7 @@ cloudinary.uploader
           },
         ],
         eager_async: true,
-        eager_notification_url: '',
+        eager_notification_url: '<WEBHOOK>',
     }
   )
   .then((result) => console.log(JSON.stringify(result, null, 2)))

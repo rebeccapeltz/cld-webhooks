@@ -20,7 +20,6 @@ exports.handler = async function (event, context) {
   console.log(JSON.stringify(dataURL, null, 2));
   console.log(JSON.stringify(dataURL.url, null, 2));
 
-
   const CORS_HEADERS = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers':
@@ -28,6 +27,8 @@ exports.handler = async function (event, context) {
   }
 
   try {
+
+  
     const response = await axios({
       method: 'get',
       url: axios({
@@ -36,7 +37,7 @@ exports.handler = async function (event, context) {
         url: dataURL.url
       }),
     });
-
+    console.log(response);
     // send success message
     return {
       statusCode: 200,

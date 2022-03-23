@@ -29,3 +29,4 @@ cloudinary.uploader
   )
   .then((result) => console.log(JSON.stringify(result, null, 2)))
   .catch((error) => console.log.log(error));
+

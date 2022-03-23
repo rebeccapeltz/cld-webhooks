@@ -12,7 +12,7 @@ cloudinary.uploader
     public_id: 'elephants1',
     access_control: [{ access_type: 'token' }],
     moderation: 'google_video_moderation:possible',
-    notification_url:'<WEBHOOK>'
+    notification_url:'https://rpeltz-cld-webhooks.netlify.app/.netlify/functions/webhook_process_google_moderation_queues'
   })
   .then(result => {
     console.log(result)

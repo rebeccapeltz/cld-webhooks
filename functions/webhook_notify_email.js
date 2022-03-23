@@ -20,6 +20,7 @@ exports.handler = async function (event, context) {
   // get data from POST
   const data = JSON.parse(event.body);
   // console.log(JSON.stringify(data, null, 2));
+  console.log(`header info: ${JSON.stringify(event.headers,null,2)}`);
 
   // register the SendGrid API KEY
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
@@ -49,7 +50,6 @@ exports.handler = async function (event, context) {
     const response = await sgMail.sendMultiple(msg);
     // console.log('success', response[0].statusCode);
     // console.log('success-response',response[0]);
-
     // send success message
     return {
       statusCode: response[0].statusCode,

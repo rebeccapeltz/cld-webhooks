@@ -1,7 +1,8 @@
 require("dotenv").config();
 const cloudinary = require("cloudinary").v2;
 
-// eager async upload to create derived optimization transformations
+// this eager upload transformation is good for processing short form video (duration <1 minute)
+// eager async upload to create derived optimized transformations
 // asynchronously to avoid delays with on the fly transformations
 
 // Your webhook might looks like this: https://my-cld-webhooks.netlify.app/.netlify/functions/webhook_notify_email

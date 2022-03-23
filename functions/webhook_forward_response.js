@@ -17,7 +17,9 @@ exports.handler = async function (event, context) {
   // get data from POST
   // expect a URL string
   const dataURL = JSON.parse(event.body);
-  console.log(JSON.stringify(data, null, 2));
+  console.log(JSON.stringify(dataURL, null, 2));
+  console.log(JSON.stringify(dataURL.url, null, 2));
+
 
   const CORS_HEADERS = {
     'Access-Control-Allow-Origin': '*',
@@ -31,7 +33,7 @@ exports.handler = async function (event, context) {
       url: axios({
         method: 'get',
         headers: CORS_HEADERS,
-        url: dataURL
+        url: dataURL.url
       }),
     });
 
